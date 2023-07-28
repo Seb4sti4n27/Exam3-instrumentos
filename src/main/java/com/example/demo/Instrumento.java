@@ -10,46 +10,40 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "curso")
-public class Curso {
+@Table(name = "instrumento")
+public class Instrumento {
 
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String nombre;
-    private Integer creditos;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_carrera")
-    private Carrera carrera;
-    
-    public Carrera getCarrera() {
-        return carrera;
+    @JoinColumn(name = "id_categoria")
+    private Categoria categoria;
+
+    public Categoria getCategoria() {
+        return categoria;
     }
-    public void setCarrera(Carrera carrera) {
-        this.carrera = carrera;
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
     }
 
     public Integer getId() {
         return id;
     }
+
     public void setId(Integer id) {
         this.id = id;
     }
+
     public String getNombre() {
         return nombre;
     }
+
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-    public Integer getCreditos() {
-        return creditos;
-    }
-    public void setCreditos(Integer creditos) {
-        this.creditos = creditos;
-    }
-    
-    
-    
-    
+
 }

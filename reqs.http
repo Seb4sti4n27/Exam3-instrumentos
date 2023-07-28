@@ -1,42 +1,25 @@
-@server = https://texai-laughing-space-xylophone-5x4ww94j27q9x-8080.preview.app.github.dev
+@server = http://localhost:8080/api/ec3
 
 
+@api = {{server}}
+
+################ Categorias: ################
 ###
-GET {{server}}/
+GET {{api}}/categorias
 ###
-GET {{server}}/cursos 
-###
-POST {{server}}/cursos
+POST {{api}}/categorias
 Content-Type: application/json
 
-{"nombre": "Compiladores 2", "creditos": 5}
+{"nombre": "Instrumentos de Cuerda"}
+################ Instrumentos: ################
 ###
-GET {{server}}/cursos/1
+GET {{api}}/instrumentos
 ###
-PATCH {{server}}/cursos/2
+POST {{api}}/instrumentos
 Content-Type: application/json
 
-{"nombre": "Lenguajes de Programación"}
+{"nombre": "Guitarra", "categoria": "http://localhost/api/ec3/categorias/1"}
 ###
-GET {{server}}/cursos?size=2&page=0
+GET {{api}}/instrumentos/1/categoria
 ###
-GET {{server}}/cursos?size=2&page=0&sort=creditos,desc
-###
-GET {{server}}/cursos?size=2&page=1&sort=creditos,desc
-###
-GET {{server}}/cursos/search/findByNombre?nombre=Algoritmos
-
-#############
-
-GET {{server}}/carreras
-###
-POST {{server}}/carreras
-Content-Type: application/json
-
-{"nombre": "Marketing"}
-###
-GET {{server}}/carreras/2/cursos
-###
-GET {{server}}/carreras/1/cursos
-###
-GET {{server}}/cursos/4/carrera?size=2&page=0&sort=creditos,desc
+GET {{api}}/instrumentos?sort=nombre,desc
